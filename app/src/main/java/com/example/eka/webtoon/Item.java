@@ -9,11 +9,14 @@ import android.media.Image;
 public class Item {
     String toon_name;
     String image_url;
-
-    public Item(String toon_name, String image_url) {
+    String toon_artist;
+    public Item(String toon_name , String image_url, String toon_artist) {
         this.toon_name = toon_name;
         this.image_url = image_url;
+        this.toon_artist = toon_artist;
     }
+
+
 
     public String getToon_name() {
         return toon_name;
@@ -29,5 +32,13 @@ public class Item {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getToon_artist() {
+        return toon_artist;
+    }
+
+    public void setToon_artist(String toon_artist) {
+        this.toon_artist = toon_artist;
     }
 }

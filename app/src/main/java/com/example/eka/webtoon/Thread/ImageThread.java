@@ -1,4 +1,4 @@
-package com.example.eka.webtoon;
+package com.example.eka.webtoon.Thread;
 
 
 import android.graphics.Bitmap;
