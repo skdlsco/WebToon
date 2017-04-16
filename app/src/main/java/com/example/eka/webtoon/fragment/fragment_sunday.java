@@ -1,6 +1,7 @@
 package com.example.eka.webtoon.fragment;
 
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -45,7 +46,6 @@ public class fragment_sunday extends Fragment {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
 
         return view;

@@ -30,7 +30,6 @@ public class ImageThread extends Thread {
 
             url = new URL(_url);
             HttpURLConnection urlcon= (HttpURLConnection) url.openConnection();
-            urlcon.setDoInput(true);
             urlcon.connect();
 
             InputStream is = urlcon.getInputStream();
