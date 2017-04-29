@@ -6,6 +6,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 
 import com.example.eka.webtoon.Adapter.PagerAdapter;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager topViewPager;
     private PagerAdapter pagerAdapter;
     private TopPagerAdapter topPagerAdapter;
+    private CustomIndicator customIndicator;
+    static public Display display;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         topPagerAdapter = new TopPagerAdapter(getSupportFragmentManager());
         topViewPager = (ViewPager) findViewById(R.id.topviewpager);
         topViewPager.setAdapter(topPagerAdapter);
-
+        customIndicator= (CustomIndicator) findViewById(R.id.cutomindicator);
         TopItemThread topItemThread = new TopItemThread();
         topItemThread.start();
         try {
@@ -35,7 +38,23 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        customIndicator.creatIndicator(topPagerAdapter.getCount(),30);
+        topViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels){
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+                customIndicator.select(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
+        display = getWindowManager().getDefaultDisplay();
         tablayout = (TabLayout) findViewById(R.id.tablayout);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
 

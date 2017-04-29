@@ -8,41 +8,46 @@
     android:orientation="vertical"
     android:weightSum="10"
     tools:context="com.example.eka.webtoon.MainActivity">
-    <RelativeLayout
-        android:layout_weight="3.1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/topviewpager"
+        <RelativeLayout
+            android:layout_weight="3.3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        <TextView
-            android:text="이달의 신작 웹툰"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:layout_margin="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+            android:layout_height="0dp"
+            >
 
-    <android.support.design.widget.TabLayout
-        android:layout_weight="0.8"
-        android:id="@+id/tablayout"
-        android:background="#fff"
+            <android.support.v4.view.ViewPager
+                android:id="@+id/topviewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <com.example.eka.webtoon.CustomIndicator
+                android:id="@+id/cutomindicator"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </com.example.eka.webtoon.CustomIndicator>
+        </RelativeLayout>
+
+        <android.support.design.widget.TabLayout
+            android:layout_weight="0.7"
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#fff"
+            app:tabIndicatorColor="#999"
+            app:tabIndicatorHeight="3dp">
+
+        </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_weight="5.2"
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:tabIndicatorHeight="3dp"
-        app:tabIndicatorColor="#999">
+        />
 
-    </android.support.design.widget.TabLayout>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_weight="5.1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"/>
     <android.support.v4.widget.Space
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 </LinearLayout>
