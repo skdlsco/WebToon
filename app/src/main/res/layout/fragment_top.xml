@@ -2,37 +2,34 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="10000dp"
-    android:layout_height="10000dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/top_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/top_name"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="15dp"
-        android:textColor="#000"
-        android:text="ㅁㄴㅇㄹㅁㄴㅇㄹ"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/top_artist"
-        android:textColor="#000"
-        android:layout_marginTop="74dp"
-        android:layout_marginLeft="20dp"
-        android:text="ㅁㄴㅇㄹㅁㄴㅇㄹ"
-        android:textSize="17sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/top_contents"
-        android:textColor="#000"
-        android:layout_marginTop="110dp"
-        android:layout_marginLeft="30dp"
-        android:text="ㅁㄴㅇㅁㄴㅇㄹ"
-        android:textSize="12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    <!--<TextView-->
+        <!--android:id="@+id/top_name"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:textColor="#000"-->
+        <!--android:textSize="20sp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+    <!--<TextView-->
+        <!--android:id="@+id/top_artist"-->
+        <!--android:textColor="#000"-->
+        <!--android:layout_marginTop="74dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:textSize="17sp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+    <!--<TextView-->
+        <!--android:id="@+id/top_contents"-->
+        <!--android:textColor="#000"-->
+        <!--android:layout_marginTop="110dp"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:textSize="12sp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 </RelativeLayout>

@@ -2,6 +2,9 @@ package com.example.eka.webtoon.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.eka.webtoon.Item;
+import com.example.eka.webtoon.MainActivity;
 import com.example.eka.webtoon.R;
 import com.example.eka.webtoon.Thread.ImageThread;
 
@@ -25,7 +29,6 @@ public class ListAdapter extends BaseAdapter {
     ArrayList<Item> items;
     Context context;
     Bitmap bitmap;
-
     public ListAdapter(ArrayList<Item> items, Context context) {
         this.items = items;
         this.context = context;
@@ -59,7 +62,12 @@ public class ListAdapter extends BaseAdapter {
         imageThread.start();
         try {
             imageThread.join();
-            image.setImageBitmap(imageThread.getBitmap());
+//            Point size = new Point();
+//            MainActivity.display.getSize(size);
+//            bitmap = Bitmap.createScaledBitmap(imageThread.getBitmap(), (int) (size.x*0.33), (int) (size.x*0.33),true);
+            bitmap= imageThread.getBitmap();
+            image.setImageBitmap(bitmap);
+
 
         } catch (InterruptedException e) {
             e.printStackTrace();

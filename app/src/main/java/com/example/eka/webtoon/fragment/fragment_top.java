@@ -35,9 +35,9 @@ public class fragment_top extends Fragment{
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_top,null);
 
         ImageView top_img= (ImageView) view.findViewById(R.id.top_img);
-        TextView top_name = (TextView) view.findViewById(R.id.top_name);
-        TextView top_artist = (TextView) view.findViewById(R.id.top_artist);
-        TextView top_contents= (TextView) view.findViewById(R.id.top_contents);
+//        TextView top_name = (TextView) view.findViewById(R.id.top_name);
+//        TextView top_artist = (TextView) view.findViewById(R.id.top_artist);
+//        TextView top_contents= (TextView) view.findViewById(R.id.top_contents);
 
         item = TopItemThread.getItems().get(num);
 
@@ -46,19 +46,19 @@ public class fragment_top extends Fragment{
         try {
             imageThread.join();
             Bitmap bitmap=imageThread.getBitmap();
-            display = getActivity().getWindowManager().getDefaultDisplay();
-            DisplayMetrics realMetrics=new DisplayMetrics();
-            display.getRealMetrics(realMetrics);
-            bitmap = Bitmap.createScaledBitmap(bitmap,realMetrics.widthPixels, (int) (realMetrics.heightPixels*0.3),true);
+//            display = getActivity().getWindowManager().getDefaultDisplay();
+//            DisplayMetrics realMetrics=new DisplayMetrics();
+//            display.getRealMetrics(realMetrics);
+//            bitmap = Bitmap.createScaledBitmap(bitmap, realMetrics.widthPixels, (int) (realMetrics.heightPixels/3.2),true);
             top_img.setImageBitmap(bitmap);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        top_name.setText(item.getToon_name());
-        top_artist.setText(item.getToon_artist());
-        top_contents.setText(item.getToon_contents());
+//        top_name.setText(item.getToon_name());
+//        top_artist.setText(item.getToon_artist());
+//        top_contents.setText(item.getToon_contents());
 
         return view;
     }
