@@ -18,6 +18,7 @@ public class CustomIndicator extends LinearLayout {
     private int selectdot=R.drawable.dot_select;
     private int deselectdot=R.drawable.dot_deselect;
     private ImageView[] Dot;
+
     public CustomIndicator(Context context) {
         super(context);
         this.context = context;
@@ -51,8 +52,10 @@ public class CustomIndicator extends LinearLayout {
         for(i=0;i<Dot.length;i++){
             if (i==position){
                 Dot[i].setImageResource(selectdot);
+                Dot[i].animate().scaleY(1.4f).scaleX(1.4f).start();
             }else{
                 Dot[i].setImageResource(deselectdot);
+                Dot[i].animate().scaleX(1f).scaleY(1f).start();
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.example.eka.webtoon;
 
 import android.os.Build;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,9 @@ import android.view.View;
 import com.example.eka.webtoon.Adapter.PagerAdapter;
 import com.example.eka.webtoon.Adapter.TopPagerAdapter;
 import com.example.eka.webtoon.Thread.TopItemThread;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        customIndicator.creatIndicator(topPagerAdapter.getCount(),30);
+        customIndicator.creatIndicator(topPagerAdapter.getCount(),15);
         topViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels){
@@ -88,5 +92,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        final int[] top_pager_position = {0};
+        Timer timer = new Timer();
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                top_pager_position[0]++;
+                if(top_pager_position[0]==3)
+                    top_pager_position[0]=0;
+                topViewPager.setCurrentItem(top_pager_position[0]);
+            }
+        };
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(runnable);
+            }
+        },3000,3000);
     }
 }
