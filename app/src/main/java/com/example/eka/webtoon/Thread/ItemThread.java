@@ -20,21 +20,28 @@ public class ItemThread extends Thread {
     Document doc;
     Elements col_selected;
     Elements links;
-    public ItemThread (String url){
-        this.url=url;
+
+    public ItemThread(String url) {
+        this.url = url;
     }
+
     @Override
     public void run() {
         try {
-            doc = Jsoup.connect("http://"+url).get();
+            doc = Jsoup.connect("http://" + url).get();
             col_selected = doc.select(".img_list").select("li");
             links = col_selected.select(".thumb");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (Element element : col_selected){
-            items.add( new Item( element.select("a").attr("title") , element.select("a").select("img").attr("src") , element.select(".desc").text()));
+        for (Element element : col_selected) {
+            items.add(new Item("https://comic.naver.com" + element.select("a").attr("href"), element.select("a").attr("title"), element.select("a").select("img").attr("src"), element.select(".desc").text()));
+        }
+        if (items.size() % 3 != 0) {
+            int size = items.size();
+            for (int i = 0; i < 3 - (size % 3); i++)
+                items.add(new Item("", "", "", ""));
         }
     }
 

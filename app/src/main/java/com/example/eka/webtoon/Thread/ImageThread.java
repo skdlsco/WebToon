@@ -16,7 +16,7 @@ import java.net.URL;
 public class ImageThread extends Thread {
     String _url;
     URL url;
-    Bitmap bitmap=null;
+    Bitmap bitmap = null;
 
     public ImageThread(String _url) {
         this._url = _url;
@@ -27,9 +27,10 @@ public class ImageThread extends Thread {
         super.run();
 
         try {
-
+            if (_url == "")
+                return;
             url = new URL(_url);
-            HttpURLConnection urlcon= (HttpURLConnection) url.openConnection();
+            HttpURLConnection urlcon = (HttpURLConnection) url.openConnection();
             urlcon.connect();
 
             InputStream is = urlcon.getInputStream();

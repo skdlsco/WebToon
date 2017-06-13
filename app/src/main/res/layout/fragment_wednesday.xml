@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
-    <GridView
+    android:background="#fff"
+    android:orientation="vertical">
+    <!--<GridView-->
+    <!--android:id="@+id/listwednesday"-->
+    <!--android:numColumns="3"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"></GridView>-->
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/listwednesday"
-        android:numColumns="3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></GridView>
+        android:layout_height="match_parent" />
 </LinearLayout>

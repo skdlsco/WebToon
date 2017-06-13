@@ -10,13 +10,22 @@ public class Item {
     String toon_name;
     String image_url;
     String toon_artist;
-    public Item(String toon_name , String image_url, String toon_artist) {
+    String address;
+
+    public Item(String adrress, String toon_name, String image_url, String toon_artist) {
         this.toon_name = toon_name;
         this.image_url = image_url;
         this.toon_artist = toon_artist;
+        this.address = adrress;
     }
 
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getToon_name() {
         return toon_name;

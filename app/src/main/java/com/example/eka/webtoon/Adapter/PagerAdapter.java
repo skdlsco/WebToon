@@ -19,17 +19,20 @@ import com.example.eka.webtoon.fragment.fragmetn_thursday;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private int tabCount;
-    public  PagerAdapter(FragmentManager fm){
+    int height;
+
+    public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
+
     public PagerAdapter(FragmentManager fm, int tabCount) {
         super(fm);
-        this.tabCount=tabCount;
+        this.tabCount = tabCount;
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 return new fragment_monday();
             case 1:
@@ -44,12 +47,17 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return new fragment_saturday();
             case 6:
                 return new fragment_sunday();
-            default: return null;
+            default:
+                return null;
         }
     }
 
     @Override
     public int getCount() {
         return 7;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }

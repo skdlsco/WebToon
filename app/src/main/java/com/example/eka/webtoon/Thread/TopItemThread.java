@@ -26,19 +26,20 @@ public class TopItemThread extends Thread {
     static private ArrayList<TopItem> items = new ArrayList<>();
 
     Document doc;
+
     @Override
     public void run() {
         super.run();
 
         try {
-            doc= Jsoup.connect("https://comic.naver.com/webtoon/weekday.nhn").get();
+            doc = Jsoup.connect("https://comic.naver.com/webtoon/weekday.nhn").get();
             Elements webtoon_spot = doc.select(".webtoon_spot2").select("li");
-            for(Element element: webtoon_spot){
+            for (Element element : webtoon_spot) {
                 image_url = element.select("a").select("img").attr("src");
                 toon_name = element.select("strong").text();
                 toon_artist = element.select("a").next("p").text();
                 toon_contents = element.select("p").next().text();
-                items.add(new TopItem(image_url,toon_name,toon_artist,toon_contents));
+                items.add(new TopItem(image_url, toon_name, toon_artist, toon_contents));
             }
         } catch (IOException e) {
             e.printStackTrace();

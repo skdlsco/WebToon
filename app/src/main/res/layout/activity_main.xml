@@ -1,64 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="10"
     tools:context="com.example.eka.webtoon.MainActivity">
 
-    <android.support.v4.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="10">
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="9">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="3.3">
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/topviewpager"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    app:layout_scrollFlags="scroll|enterAlways">
 
-                <com.example.eka.webtoon.CustomIndicator
-                    android:id="@+id/cutomindicator"
-                    android:layout_width="wrap_content"
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/topviewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
+                    <com.example.eka.webtoon.CustomIndicator
+                        android:id="@+id/cutomindicator"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true">
+
+                    </com.example.eka.webtoon.CustomIndicator>
+
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true">
+                    app:tabBackground="@drawable/tab_select"
+                    app:tabIndicatorColor="#999"
+                    app:tabIndicatorHeight="1dp">
 
-                </com.example.eka.webtoon.CustomIndicator>
-            </RelativeLayout>
+                </android.support.design.widget.TabLayout>
+            </android.support.design.widget.AppBarLayout>
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tablayout"
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.7"
-                android:background="#fff"
-                app:tabIndicatorColor="#999"
-                app:tabIndicatorHeight="3dp">
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            </android.support.design.widget.TabLayout>
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5.2" />
+            </android.support.v4.widget.NestedScrollView>
 
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.8" />
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+        </android.support.design.widget.CoordinatorLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/main_webtoon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu_webtoon_click" />
+
+        <ImageButton
+            android:id="@+id/main_getzzal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu_getzzal_noclick" />
+
+        <ImageButton
+            android:id="@+id/main_store"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu_store_noclick" />
+
+        <ImageButton
+            android:id="@+id/main_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu_my_noclick" />
+    </LinearLayout>
+</RelativeLayout>

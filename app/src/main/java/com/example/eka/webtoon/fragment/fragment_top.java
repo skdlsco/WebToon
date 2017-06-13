@@ -22,19 +22,22 @@ import com.example.eka.webtoon.TopItem;
  * Created by eka on 2017. 4. 16..
  */
 
-public class fragment_top extends Fragment{
+public class fragment_top extends Fragment {
     int num;
     Display display;
+
     public fragment_top(int num) {
-        this.num=num;
+        this.num = num;
     }
+
     TopItem item;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_top,null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_top, null);
 
-        ImageView top_img= (ImageView) view.findViewById(R.id.top_img);
+        ImageView top_img = (ImageView) view.findViewById(R.id.top_img);
 //        TextView top_name = (TextView) view.findViewById(R.id.top_name);
 //        TextView top_artist = (TextView) view.findViewById(R.id.top_artist);
 //        TextView top_contents= (TextView) view.findViewById(R.id.top_contents);
@@ -45,7 +48,7 @@ public class fragment_top extends Fragment{
         imageThread.start();
         try {
             imageThread.join();
-            Bitmap bitmap=imageThread.getBitmap();
+            Bitmap bitmap = imageThread.getBitmap();
 //            display = getActivity().getWindowManager().getDefaultDisplay();
 //            DisplayMetrics realMetrics=new DisplayMetrics();
 //            display.getRealMetrics(realMetrics);
